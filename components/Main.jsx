@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Map from "../components/Map";
+// import Map from "../components/Map";
 
 
 const Main = () => {
@@ -21,6 +21,9 @@ return (
                 impedit porro deleniti ratione, vel recusandae saepe itaque? Officia
                 iusto nisi repellat facere quod sunt ad nam? Eligendi.
             </p>
+          <div>
+          <span className="text-red-500 bg-yellow-300 flex items-center justify-center">Here is beautiful environment</span>
+          </div>
 
            <div className=" mt-5 flex  justify-center  ">
            <div className="ml-10">
@@ -40,9 +43,9 @@ return (
             />
            </div>
            </div>
-           <div>
+           {/* <div>
            <Map address="1600 Amphitheatre Parkway, Mountain View, CA" />
-           </div>
+           </div> */}
         </div>
     </>
 );
