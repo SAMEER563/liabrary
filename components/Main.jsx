@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Map from "../components/Map";
 
 
 const Main = () => {
@@ -38,6 +39,9 @@ return (
                 alt="Picture of the author"
             />
            </div>
+           </div>
+           <div>
+           <Map address="1600 Amphitheatre Parkway, Mountain View, CA" />
            </div>
         </div>
     </>
