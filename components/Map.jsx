@@ -1,31 +1,45 @@
+"use client";
+import { Loader } from '@googlemaps/js-api-loader';
+import React, { useEffect } from 'react';
 
-// import { useEffect, useRef, useMemo } from "react";
-// import { Loader } from "@googlemaps/js-api-loader";
-// function Map({ address }) {
-//   const mapRef = useRef(null);
-// const geocoder = useMemo(() => new google.maps.Geocoder(), []);
-// useEffect(() => {
-//     const loader = new Loader({
-//       apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-//       version: "weekly",
-//     });
-// loader.load().then(() => {
-//       geocoder.geocode({ address: address }, (results, status) => {
-//         if (status === "OK") {
-//           const map = new google.maps.Map(mapRef.current, {
-//             center: results[0].geometry.location,
-//             zoom: 8,
-//           });
-// const marker = new google.maps.Marker({
-//             map: map,
-//             position: results[0].geometry.location,
-//           });
-//         } else {
-//           console.error(`Geocode was not successful for the following reason: ${status}`);
-//         }
-//       });
-//     });
-//   }, [address, geocoder]);
-// return <div style={{ height: "400px" }} ref={mapRef} />;
-// }
-// export default Map;
+function Map() {
+    const mapRef = React.useRef(null);
+
+    useEffect(() => {
+        const initMap = async () => {
+            const loader = new Loader({
+                apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY,
+                version: "weekly"
+            });
+
+            // Load Google Maps library
+            const { google } = await loader.load();
+
+            // Initialize map options
+            const position = { lat: 37.7749, lng: -122.4194 };
+            const mapOptions = {
+                zoom: 17,
+                mapId: "MY_NEXTJS_MAPID"
+            };
+
+            // Create map instance
+            const map = new Map(mapRef.current, mapOptions);
+
+            // Add marker to the map
+            new google.maps.Marker({
+                position: position,
+                map: map,
+                title: "My NextJS Map"
+            });
+        };
+
+        // Call the initialization function
+        initMap();
+    }, []); // Empty dependency array indicates that this effect runs only once after the component mounts
+
+    return (
+        <div style={{ height: '600px' }} ref={mapRef} />
+    );
+}
+
+export default Map;
