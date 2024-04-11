@@ -1,45 +1,53 @@
 "use client";
 import { Loader } from '@googlemaps/js-api-loader';
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
 
 function Map() {
-    const mapRef = React.useRef(null);
+
+    const mapRef = React.useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const initMap = async () => {
-            const loader = new Loader({
-                apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY,
-                version: "weekly"
-            });
+         const initMap = async () => {
+        const loader = new Loader({
+            apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY ,
+            version: "weekly"
+        });
 
-            // Load Google Maps library
-            const { google } = await loader.load();
+        const {Map} = await loader.importLibrary("Maps");
 
-            // Initialize map options
-            const position = { lat: 37.7749, lng: -122.4194 };
-            const mapOptions = {
-                zoom: 17,
-                mapId: "MY_NEXTJS_MAPID"
-            };
+    // init marker
+    const {Marker} = await loader.importLibrary("Marker");
+        const position = {
+             lat: 37.7749, 
+             lng: -122.4194 };
+        }
+        
+        //map options
+        const mapOptions = google.maps.MapOptions = {
+            center: position,
+            zoom: 17,
+            mapId: "MY_NEXTJS_MAPID"
+        }
 
-            // Create map instance
-            const map = new Map(mapRef.current, mapOptions);
+        // setup map
+        const map = new Map(mapRef.current, mapOptions);
+    
 
-            // Add marker to the map
-            new google.maps.Marker({
-                position: position,
-                map: map,
-                title: "My NextJS Map"
-            });
-        };
+        // setup marker
+        const marker = new Marker({
+            position: position,
+            map: map,
+            title: "My NextJS Map"
+    });
+    initMap();
 
-        // Call the initialization function
-        initMap();
-    }, []); // Empty dependency array indicates that this effect runs only once after the component mounts
+    } [];
 
     return (
-        <div style={{ height: '600px' }} ref={mapRef} />
-    );
-}
+    <div style={{height: '600px'}} ref={mapRef} />
 
-export default Map;
+    
+    )
+
+
+export default Map
