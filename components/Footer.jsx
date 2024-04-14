@@ -18,7 +18,7 @@ const Footer = () => {
     </div>
   </nav> 
   <aside>
-    <p>Copyright © 2024 - Designed by SAMEER</p>
+    <p>Copyright © 2024 - Designed by SAMEER </p>
   </aside>
 </footer>
     </div>
