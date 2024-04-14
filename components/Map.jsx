@@ -40,6 +40,7 @@ function Map() {
             title: "My NextJS Map"
     });
     initMap();
+}, []);
 
     } [];
 
