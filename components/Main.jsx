@@ -17,9 +17,6 @@ return (
                 exercitationem unde ipsam qui. Quidem officia officiis repellat
                 ratione, incidunt laborum corporis quia deserunt natus molestiae,
                 quaerat neque asperiores quisquam laudantium at ducimus voluptates.
-                Fuga, distinctio amet voluptatum id, eum animi facere quo ab aperiam
-                impedit porro deleniti ratione, vel recusandae saepe itaque? Officia
-                iusto nisi repellat facere quod sunt ad nam? Eligendi.
             </p>
           <div>
           <span className="text-red-500 flex items-center justify-center ">Here is beautiful environment</span>
